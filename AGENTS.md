@@ -8,7 +8,7 @@ A Moodle 5.0+ question bank plugin. Its "Generate with AI" tab sends a document 
 
 It requires `lum-earth/moodle-aiprovider_lumination` (the hub): the API key and client come from `\aiprovider_lumination\api_client::for_site()`. CI installs it with `moodle-plugin-ci add-plugin`.
 
-- The real `/quiz` result puts options, `correct_answer` (a letter), `explanation` and `hint` under `question_json`, and labels options "A) ...". `tests/fixtures/quiz_result.json` has that shape; keep it in step with the API.
+- The real `/quiz` result puts options, `correct_answer` (a letter), `explanation` and `hint` under `question_json`, and labels options "A) ...". `tests/fixtures/quiz_result.json` has that shape; keep it in step with the API. Explanations name options by letter, so questions keep the API order (`shuffleanswers` false, `ABCD`). `source_pages` is not used (it reported page 1 for answers on later pages).
 
 ## Checks
 

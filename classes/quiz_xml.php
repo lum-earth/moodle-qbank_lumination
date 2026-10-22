@@ -95,10 +95,7 @@ class quiz_xml {
         if ($explanation !== '') {
             $feedback .= '<p>' . s($explanation) . '</p>';
         }
-        $pages = array_filter(array_map('intval', (array) ($question['source_pages'] ?? [])));
-        if ($pages) {
-            $feedback .= '<p>' . get_string('sourcepages', 'qbank_lumination', implode(', ', $pages)) . '</p>';
-        }
+        // The API's source_pages is not used: it reported page 1 for answers on page 8 (22 Oct 2026).
         $hint = trim((string) ($detail['hint'] ?? ''));
         $hintxml = $hint === ''
             ? ''
@@ -121,8 +118,9 @@ class quiz_xml {
             . "    <penalty>0.3333333</penalty>\n"
             . "    <hidden>0</hidden>\n"
             . "    <single>true</single>\n"
-            . "    <shuffleanswers>true</shuffleanswers>\n"
-            . "    <answernumbering>abc</answernumbering>\n"
+            // The API's explanations name options by letter ("so C is correct"): keep its order and labels.
+            . "    <shuffleanswers>false</shuffleanswers>\n"
+            . "    <answernumbering>ABCD</answernumbering>\n"
             . $answers
             . $hintxml
             . "  </question>";
@@ -131,8 +129,8 @@ class quiz_xml {
     /**
      * Remove "A) ", "B. ", "(C) " labels when every option has one, in order.
      *
-     * Moodle numbers and shuffles the options itself, so the API's labels would show twice and
-     * point at the wrong option. Options are left alone unless all of them are labelled a, b, c...
+     * Moodle numbers the options itself (A, B, C in the API's order), so the API's labels would
+     * show twice. Options are left alone unless all of them are labelled a, b, c...
      *
      * @param string[] $options The options.
      * @return string[] The options without labels.

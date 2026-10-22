@@ -50,7 +50,10 @@ final class quiz_xml_test extends \advanced_testcase {
         $this->assertSame(2, $built['count']);
         $this->assertSame(1, $built['skipped']);
         $this->assertStringContainsString('<question type="multichoice">', $built['xml']);
-        // Letter labels are removed; Moodle numbers options itself.
+        // Options keep the API order, so explanations that name a letter stay right.
+        $this->assertStringContainsString('<shuffleanswers>false</shuffleanswers>', $built['xml']);
+        $this->assertStringContainsString('<answernumbering>ABCD</answernumbering>', $built['xml']);
+        // Letter labels are removed; Moodle labels the options itself.
         $this->assertStringNotContainsString('B) In the thylakoid', $built['xml']);
         $this->assertStringContainsString('In the thylakoid membranes', $built['xml']);
         $this->assertStringContainsString('<hint format="html">', $built['xml']);

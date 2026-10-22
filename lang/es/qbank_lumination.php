@@ -57,5 +57,4 @@ $string['privacy:metadata:jobs:userid'] = 'El ID del usuario que inició el trab
 $string['questioncount'] = 'Número de preguntas';
 $string['sourcefile'] = 'Documento de origen';
 $string['sourcefile_help'] = 'Un archivo PDF, Word (.docx) o de texto con el material que deben cubrir las preguntas.';
-$string['sourcepages'] = 'Fuente: página {$a} del documento.';
 $string['viewquestions'] = 'Ver las preguntas';

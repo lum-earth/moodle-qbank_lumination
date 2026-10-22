@@ -57,5 +57,4 @@ $string['privacy:metadata:jobs:userid'] = 'The ID of the user who started the jo
 $string['questioncount'] = 'Number of questions';
 $string['sourcefile'] = 'Source document';
 $string['sourcefile_help'] = 'A PDF, Word (.docx) or text file with the material the questions should cover.';
-$string['sourcepages'] = 'Source: page {$a} of the document.';
 $string['viewquestions'] = 'View the questions';
