@@ -1,0 +1,4 @@
+# Kept on GitHub, left out of release zips (git archive).
+/AGENTS.md export-ignore
+/.github export-ignore
+/.gitattributes export-ignore

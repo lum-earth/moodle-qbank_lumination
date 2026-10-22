@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="question/bank/lumination/db" VERSION="2026102200" COMMENT="Lumination AI Question Generator tables"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="qbank_lumination_jobs" COMMENT="Question generation jobs and their results">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="User who started the job"/>
+        <FIELD NAME="contextid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Context of the question bank"/>
+        <FIELD NAME="categoryid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Category the generated category goes under"/>
+        <FIELD NAME="newcategoryid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Category holding the generated questions"/>
+        <FIELD NAME="cmid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Question bank module, for links back"/>
+        <FIELD NAME="filename" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Source document name"/>
+        <FIELD NAME="questioncount" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="10" SEQUENCE="false" COMMENT="Questions requested"/>
+        <FIELD NAME="difficulty" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="medium" SEQUENCE="false"/>
+        <FIELD NAME="language" TYPE="char" LENGTH="10" NOTNULL="true" DEFAULT="en" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="queued" SEQUENCE="false" COMMENT="queued, running, completed or failed"/>
+        <FIELD NAME="created" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Questions created"/>
+        <FIELD NAME="skipped" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Questions returned but not usable"/>
+        <FIELD NAME="message" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Error shown to the user, if any"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="userid" UNIQUE="false" FIELDS="userid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

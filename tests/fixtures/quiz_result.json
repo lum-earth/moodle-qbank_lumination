@@ -1,0 +1,44 @@
+{
+  "quiz_uuid": "00000000-0000-0000-0000-000000000001",
+  "title": "Photosynthesis quiz",
+  "questions": [
+    {
+      "uuid": "00000000-0000-0000-0000-000000000011",
+      "question_type": "multiple_choice",
+      "question_text": "Where do the light-dependent reactions take place?",
+      "question_json": {
+        "question_text": "Where do the light-dependent reactions take place?",
+        "options": ["A) In the stroma", "B) In the thylakoid membranes", "C) In the nucleus", "D) In the cell wall"],
+        "correct_answer": "B",
+        "explanation": "The light-dependent reactions happen in the thylakoid membranes of the chloroplast.",
+        "hint": "Think about the membranes inside the chloroplast."
+      },
+      "source_pages": [1],
+      "difficulty_level_used": "medium",
+      "language_code_used": "en"
+    },
+    {
+      "uuid": "00000000-0000-0000-0000-000000000012",
+      "question_type": "multiple_choice",
+      "question_text": "Which gas is fixed in the Calvin cycle?",
+      "question_json": {
+        "question_text": "Which gas is fixed in the Calvin cycle?",
+        "options": ["A) Oxygen", "B) Nitrogen", "C) Carbon dioxide"],
+        "correct_answer": "C",
+        "explanation": "",
+        "hint": ""
+      },
+      "source_pages": []
+    },
+    {
+      "uuid": "00000000-0000-0000-0000-000000000013",
+      "question_type": "multiple_choice",
+      "question_text": "Broken question with one option",
+      "question_json": {
+        "question_text": "Broken question with one option",
+        "options": ["A) Only one"],
+        "correct_answer": "A"
+      }
+    }
+  ]
+}
