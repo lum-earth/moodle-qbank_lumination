@@ -26,16 +26,23 @@ require_once(__DIR__ . '/../../../config.php');
 
 $id = required_param('id', PARAM_INT);
 
-require_login();
 $job = $DB->get_record('qbank_lumination_jobs', ['id' => $id], '*', MUST_EXIST);
 $context = context::instance_by_id($job->contextid);
+
+// The question bank is a course module: log in to its course so the page has the right course and module.
+if ($context->contextlevel == CONTEXT_MODULE) {
+    [$course, $cm] = get_course_and_cm_from_cmid($context->instanceid);
+    require_login($course, false, $cm);
+} else {
+    require_login();
+    $PAGE->set_context($context);
+}
 require_capability('moodle/question:add', $context);
 if ($job->userid != $USER->id && !has_capability('moodle/site:config', context_system::instance())) {
     throw new moodle_exception('nopermissions', 'error', '', get_string('generatetitle', 'qbank_lumination'));
 }
 
 $PAGE->set_url(new moodle_url('/question/bank/lumination/status.php', ['id' => $id]));
-$PAGE->set_context($context);
 $PAGE->set_title(get_string('generatetitle', 'qbank_lumination'));
 $PAGE->set_heading(get_string('generatetitle', 'qbank_lumination'));
 

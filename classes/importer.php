@@ -45,6 +45,8 @@ class importer {
      */
     public static function import(\stdClass $parent, string $name, string $xml): int {
         global $CFG, $DB;
+        // Cron does not load the question library; the importer needs question_bank from it.
+        require_once($CFG->libdir . '/questionlib.php');
         require_once($CFG->dirroot . '/question/format.php');
         require_once($CFG->dirroot . '/question/format/xml/format.php');
 
